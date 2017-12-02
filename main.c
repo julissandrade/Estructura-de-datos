@@ -41,7 +41,7 @@ main()
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
               printf(" | ");printf("\t\t\t          NUEVO MENU     ");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              menu= inserir_pedidos(menu);
+              menu= insertar_pedido(menu);
          getch();
          system("cls"); 
          break;

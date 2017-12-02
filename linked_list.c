@@ -1,12 +1,12 @@
 #include "linked_list.h"
 #include <stdlib.h>
 #include <assert.h>
-Lista* inserir_pedidos (Lista *primero){ 
+Lista* insertar_pedido (Lista *primero){ 
      Lista pedido;
      Lista *actual= primero;
      char identificador= 'F';
      
-     //Lendo as informações do pedido.
+     //Info del pedido
      printf("  Nombre: ");
      fflush (stdin); fgets(pedido.Nombre, 40, stdin); printf ("\n");
      printf("  Precio: ",135);
@@ -14,7 +14,7 @@ Lista* inserir_pedidos (Lista *primero){
      printf("  C%cdigo: ",162);
      scanf("%u",&pedido.codigo);printf ("\n");
      
-     //Verificando se o cadastro já existe.
+     //Verificando si existe el pedido
      for(actual=primero; actual!=NULL; actual=actual->prox){
         if(actual->codigo==pedido.codigo){
             identificador= 'V'; 
@@ -40,9 +40,9 @@ Lista* inserir_pedidos (Lista *primero){
 }
 
 void listar_pedidos (Lista* primero){
-     Lista* actual;//Ponteiro para percorrer a lista sem perder a referência do primero elemento da lista.
+     Lista* actual;
      
-     //Imprimindo os pedidos da lista, e suas repectivas informações.
+     //Imprimiendo pedidos de la lista con su respectiva informacion
      for(actual= primero ; actual!= NULL; actual= actual->prox){
         printf("\n  Nombre: ");
         printf("%s", actual->Nombre);
