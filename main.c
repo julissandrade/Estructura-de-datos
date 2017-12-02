@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Struct.h"
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+//Hola
 
 void listar(){
 	Node *i=primero;
