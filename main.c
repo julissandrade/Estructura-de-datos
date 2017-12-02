@@ -12,21 +12,20 @@ main()
    {  
      //Menu de opciones 
 
-      printf(" | ");printf("\t\t\t     Menu Restaurante");printf("\t\t\t      |\n");
-      printf("\t       %c----------%c\t\t\t\t       ",201,187);
-      printf("\t\t\t               |   MENU   ");printf("|\t\t\t\t      \n");
-      printf("   | <A>  Nuevo Menu               |\n");
+	  printf("\t\t\t     Menu Restaurante");printf("\t\t\t      \n");
+
+      printf("\t\t\t    (A)  Nuevo Menu               \n");
       
-      printf("   | <B>  Listar Menu                       |\n");      
+      printf("\t\t\t    (B)  Listar Menu                       \n");      
       
-      printf("   | <C>  Eliminar Menu            |\n");      
+      printf("\t\t\t    (C)  Eliminar Menu            \n");      
       
-      printf("   | <D>  Modificar Menu            |\n"); 
+      printf("\t\t\t    (D)  Modificar Menu            \n"); 
       
-      printf("   | <S>  Salir                         |\n");
+      printf("\t\t\t    (S)  Salir                         \n");
       
-      printf("\n\n\n\n");
-      printf("\t\t\t      Realizado por: Sin fronteras");
+      printf("\n\n");
+      printf("\t\t      Digite una opcion del Menu: ");
       //Leyendo Opcion del Menu   
       fflush(stdin);
       opcion= getch(); 
@@ -96,3 +95,4 @@ main()
       } 
    }  
 }
+
