@@ -4,56 +4,56 @@
 main() 
 { 
    //Declaracion de Variables
-   Lista *menu= NULL;
+   Lista *pedido= NULL;
    char opcion;
      
    //Repetir Programa.
    while(opcion!='s')   
    {  
-     //Menu de opciones 
+     //pedido de opciones 
 
-	  printf("\t\t\t     Menu pedido");printf("\t\t\t      \n");
+	  printf("\t\t\t     pedido pedido");printf("\t\t\t      \n");
 
-      printf("\t\t\t    (A)  Nuevo Menu               \n");
+      printf("\t\t\t    (A)  Nuevo pedido               \n");
       
-      printf("\t\t\t    (B)  Listar Menu                       \n");      
+      printf("\t\t\t    (B)  Listar pedido                       \n");      
       
-      printf("\t\t\t    (C)  Eliminar Menu            \n");      
+      printf("\t\t\t    (C)  Eliminar pedido            \n");      
       
-      printf("\t\t\t    (D)  Modificar Menu            \n"); 
+      printf("\t\t\t    (D)  Modificar pedido            \n"); 
       
       printf("\t\t\t    (S)  Salir                         \n");
       
       printf("\n\n");
-      printf("\t\t      Digite una opcion del Menu: ");
-      //Leyendo Opcion del Menu   
+      printf("\t\t      Digite una opcion del pedido: ");
+      //Leyendo Opcion del pedido   
       fflush(stdin);
       opcion= getch(); 
       
-      //Menu de opciones
+      //pedido de opciones
       switch(opcion)
       {
          case 'A':   
          case 'a':   
-              //Insertar Menu.
+              //Insertar pedido.
               fflush(stdin);
               system("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
-              printf(" | ");printf("\t\t\t          NUEVO MENU     ");printf("\t\t\t      |\n");
+              printf(" | ");printf("\t\t\t          NUEVO pedido     ");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              menu= insertar_pedido(menu);
+              pedido= insertar_pedido(pedido);
          getch();
          system("cls"); 
          break;
          
          case 'B':   
          case 'b':       
-              //Listar menu.
+              //Listar pedido.
               system ("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
-              printf(" | ");printf("\t\t\t     LISTAR MENU");printf("\t\t\t      |\n");
+              printf(" | ");printf("\t\t\t     LISTAR pedido");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              listar_pedidos(menu);
+              listar_pedidos(pedido);
          getch();
          system("cls");
          break;
@@ -63,21 +63,21 @@ main()
               //Excluindo pedidos da lista.
               system ("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
-              printf(" | ");printf("\t\t\t        ELIMINAR MENU");printf("\t\t\t      |\n");
+              printf(" | ");printf("\t\t\t        ELIMINAR pedido");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              menu= excluir_pedidos(menu);
+              pedido= eliminar_pedido(pedido);
          getch();
          system("cls");
          break;
 
          case 'D':   
          case 'd':   
-              //Modificar Menu. 
+              //Modificar pedido. 
               system ("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
-              printf(" | ");printf("\t\t\t       MODIFICAR MENU");printf("\t\t\t      |\n");
+              printf(" | ");printf("\t\t\t       MODIFICAR pedido");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              alterar_pedidos(menu);
+              alterar_pedidos(pedido);
          getch();
          system("cls");
          break;
@@ -89,7 +89,7 @@ main()
          break;
          
          default:     
-              //Digitar Opcion Diferente del menu.
+              //Digitar Opcion Diferente del pedido.
               system("cls");        
          break; 
       } 

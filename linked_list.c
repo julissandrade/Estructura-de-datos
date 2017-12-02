@@ -30,11 +30,11 @@ Lista* insertar_pedido (Lista *primero){
          NuevoPedido->codigo= pedido.codigo;
          NuevoPedido->prox= primero;
          printf("  Pedido realizado con exito.");
-         printf("\n\n  Presione cualquier tecla para volver al menu principal..");
+         printf("\n\n  Presione cualquier tecla para volver al pedido principal..");
          return NuevoPedido;    
      }else{
          printf("  Pedido incorrecto.",160);
-         printf("\n\n  Presione cualquier tecla para volver al menu principal..");
+         printf("\n\n  Presione cualquier tecla para volver al pedido principal..");
          return primero;
      }
 }
@@ -54,17 +54,17 @@ void listar_pedidos (Lista* primero){
      }
      if(primero==NULL)
         printf("  Nenhum pedido cadastrado.");
-     printf("\n\n  Presione cualquier tecla para volver al menu principal..");
+     printf("\n\n  Presione cualquier tecla para volver al pedido principal..");
 }
 
-Lista* excluir_pedidos(Lista *primero){
+Lista* eliminar_pedido(Lista *primero){
      
      Lista *anterior= NULL;//puntero para saber el elemento anterior o actual de la lista
      Lista *actual= primero;//puntero para recorrer la lista o primer elemento de la lista
      unsigned long int codigo=0;
      
      //Consultando el pedido a ser eliminado
-     printf("  C%cdigo do pedido a ser exclu%cdo: ", 162,161);
+     printf("  C%cdigo de pedido a ser Eliminado: ", 162,161);
      fflush(stdin);
      scanf("%u",&codigo);
      
@@ -77,7 +77,7 @@ Lista* excluir_pedidos(Lista *primero){
      //Mensaje si el pedido no se encuentra.
      if(actual==NULL){
         printf("\n  pedido n%co encontrado.", 198); 
-        printf("\n\n  Presione cualquier tecla para volver al menu principal..");
+        printf("\n\n  Presione cualquier tecla para volver al pedido principal..");
         return primero;
      }
      
@@ -93,7 +93,7 @@ Lista* excluir_pedidos(Lista *primero){
      
      //Liberando la memoroia
      free(actual);
-     printf("\n\n  Presione cualquier tecla para volver al menu principal..");
+     printf("\n\n  Presione cualquier tecla para volver al pedido principal..");
      return primero;     
 }
 
@@ -125,5 +125,5 @@ void alterar_pedidos(Lista* primero){
      }else{
         printf("\n  pedido n%co encontrado.",198);
      }
-     printf("\n\n\n  Presione cualquier tecla para volver al menu principal..");
+     printf("\n\n\n  Presione cualquier tecla para volver al pedido principal..");
      }

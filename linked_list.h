@@ -11,8 +11,8 @@ typedef struct lista{
    }Lista;
    
    //Declarando las funciones.
-   Lista* insertar_pedido(Lista* menu);
-   void listar_pedidos(Lista* menu);
-   Lista* excluir_pedidos(Lista* menu);
-   void alterar_pedidos(Lista* menu);
+   Lista* insertar_pedido(Lista* pedido);
+   void listar_pedidos(Lista* pedido);
+   Lista* eliminar_pedido(Lista* pedido);
+   void alterar_pedidos(Lista* pedido);
 
