@@ -8,7 +8,7 @@ Lista* insertar_pedido (Lista *primero){
      
      //Info del pedido
      printf("  Nombre: ");
-     fflush (stin); fgets(pedido.Nombre, 40, stdin); printf ("\n");
+     fflush (stdin); fgets(pedido.Nombre, 40, stdin); printf ("\n");
      printf("  Precio: ",135);
      fflush (stdin); fgets(pedido.Precio, 40, stdin); printf ("\n");
      printf("  C%cdigo: ",162);
