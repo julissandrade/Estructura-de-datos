@@ -30,11 +30,11 @@ Lista* insertar_pedido (Lista *primero){
          NuevoPedido->codigo= pedido.codigo;
          NuevoPedido->prox= primero;
          printf("  Pedido realizado con exito.");
-         printf("\n\n  Precione cualquier tecla para volver al menu principal..");
+         printf("\n\n  Presione cualquier tecla para volver al menu principal..");
          return NuevoPedido;    
      }else{
          printf("  Pedido incorrecto.",160);
-         printf("\n\n  Precione cualquier tecla para volver al menu principal..");
+         printf("\n\n  Presione cualquier tecla para volver al menu principal..");
          return primero;
      }
 }
@@ -54,76 +54,76 @@ void listar_pedidos (Lista* primero){
      }
      if(primero==NULL)
         printf("  Nenhum pedido cadastrado.");
-     printf("\n\n  Precione cualquier tecla para volver al menu principal..");
+     printf("\n\n  Presione cualquier tecla para volver al menu principal..");
 }
 
 Lista* excluir_pedidos(Lista *primero){
      
-     Lista *anterior= NULL;//Ponteiro para saber o elemento anterior ao elemento actual da lista.
-     Lista *actual= primero;//Ponteiro para percorrer a lista sem perder o primero elemento da lista.
+     Lista *anterior= NULL;//puntero para saber el elemento anterior o actual de la lista
+     Lista *actual= primero;//puntero para recorrer la lista o primer elemento de la lista
      unsigned long int codigo=0;
      
-     //Requisitando e lendo o código do pedido a ser excluído.
+     //Consultando el pedido a ser eliminado
      printf("  C%cdigo do pedido a ser exclu%cdo: ", 162,161);
      fflush(stdin);
      scanf("%u",&codigo);
      
-     //Procurando o pedido na lista.
+     //Buscar el pedido en la lista.
      while(actual!= NULL && actual->codigo!=codigo){
         anterior= actual;
         actual= actual->prox;
      }
      
-     //Mensagem caso o pedido não seja encontrado.
+     //Mensaje si el pedido no se encuentra.
      if(actual==NULL){
         printf("\n  pedido n%co encontrado.", 198); 
-        printf("\n\n  Precione cualquier tecla para volver al menu principal..");
+        printf("\n\n  Presione cualquier tecla para volver al menu principal..");
         return primero;
      }
      
-     //Excluindo o primero pedido da lista.   
+     //Excluyendo el primer pedido de la lista.   
      if(anterior==NULL){
-        printf("\n  Conte%cdo exclu%cdo com sucesso.", 163,161); 
+        printf("\n  Pedido eliminado exitosamente.", 163,161); 
         primero= actual->prox;
-     //Excluindo um pedido do meio da lista.
+     //Excluyendo un pedido de la lista.
      }else{
-        printf("\n  Conte%cdo exclu%cdo com sucesso.", 163,161);
+        printf("\n  Pedido eliminado exitosamente.", 163,161);
         anterior->prox= actual->prox;
      }
      
-     //Desalocando o espaço da memória.
+     //Liberando la memoroia
      free(actual);
-     printf("\n\n  Precione cualquier tecla para volver al menu principal..");
+     printf("\n\n  Presione cualquier tecla para volver al menu principal..");
      return primero;     
 }
 
-//Função para alterar pedidos.
+//Modificar pedido
 void alterar_pedidos(Lista* primero){     
      char Nombre_substituto[40], Precio_substituto[40];
      unsigned long int codigo;  
      Lista* actual=primero;
      
-     //Requisitando e lendo o código do pedido a ser alterado.
-     printf("  C%cdigo do pedido a ser alterado: ", 162);
+     //Pedido a modificar
+     printf("  C%cdigo de pedido a ser modificado: ", 162);
      fflush(stdin);
      scanf("%u",&codigo);
      
-     //Procurando o pedido na lista.
+     //Buscar el pedido en la lista.
      while(actual!= NULL && actual->codigo!=codigo){
         actual= actual->prox;
      }
      
-     //Alterando os dados do pedido.
+     //Modificando el pedido.
      if(actual!=NULL){
-        printf("\n  Novo Nombre: ");
+        printf("\n  Nuevo Nombre: ");
         fflush (stdin); fgets(Nombre_substituto, 40, stdin); 
         strcpy(actual->Nombre,Nombre_substituto);
-        printf("\n  Novo Precio: ",135);
+        printf("\n  Nuevo Precio: ",135);
         fflush (stdin); fgets(Precio_substituto, 40, stdin); printf ("\n");
         strcpy(actual->Precio,Precio_substituto);
-        printf("  Dados alterados com sucesso.");
+        printf("  Pedido modificado con exito.");
      }else{
         printf("\n  pedido n%co encontrado.",198);
      }
-     printf("\n\n\n  Precione cualquier tecla para volver al menu principal..");
+     printf("\n\n\n  Presione cualquier tecla para volver al menu principal..");
      }
