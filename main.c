@@ -12,7 +12,7 @@ main()
    {  
      //Menu de opciones 
 
-	  printf("\t\t\t     Menu Restaurante");printf("\t\t\t      \n");
+	  printf("\t\t\t     Menu pedido");printf("\t\t\t      \n");
 
       printf("\t\t\t    (A)  Nuevo Menu               \n");
       
@@ -41,7 +41,7 @@ main()
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
               printf(" | ");printf("\t\t\t          NUEVO MENU     ");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              menu= inserir_restaurantes(menu);
+              menu= inserir_pedidos(menu);
          getch();
          system("cls"); 
          break;
@@ -53,19 +53,19 @@ main()
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
               printf(" | ");printf("\t\t\t     LISTAR MENU");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              listar_restaurantes(menu);
+              listar_pedidos(menu);
          getch();
          system("cls");
          break;
          
          case 'C':   
          case 'c':   
-              //Excluindo restaurantes da lista.
+              //Excluindo pedidos da lista.
               system ("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
               printf(" | ");printf("\t\t\t        ELIMINAR MENU");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              menu= excluir_restaurantes(menu);
+              menu= excluir_pedidos(menu);
          getch();
          system("cls");
          break;
@@ -77,7 +77,7 @@ main()
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
               printf(" | ");printf("\t\t\t       MODIFICAR MENU");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
-              alterar_restaurantes(menu);
+              alterar_pedidos(menu);
          getch();
          system("cls");
          break;
