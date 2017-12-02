@@ -1,4 +1,4 @@
-#include "linked_list.h"
+#include "Struct.h"
 #include <stdlib.h>
 #include <assert.h>
 
@@ -14,10 +14,6 @@ int listIsEmpty(List *l) {
     return l->count == 0;
 } 
 
-/* Tamano de la lista */
-int listSize(List *l) {
-    return l->count;
-}
 
 /* Devuelve un puntero al nodo con indice idx */
 static Node* getNode(List *l, int idx) {
@@ -45,11 +41,21 @@ E listGet(List *l, int idx) {
     return tmp->item; 
 }
 
+
+
+
 /* Agregar elemento al final */
-void listAppend(List *l, E item) {
+void listAppend(List *l, E item, E codComida, E cantidad) {
 	
-    listAdd(l, l->count, item);
+	listAdd(l, l->count, item);
+	listAdd(l, l->count, item);
 }
+
+
+
+
+
+
 
 /* Agregar elemento en posicion idx */
 void listAdd(List *l, int idx, E item) {
@@ -117,4 +123,5 @@ void listRemoveItem(List *l, E item) {
 void listClear(List *l) {
 	/* Su codigo aqui */
 }
+
 

@@ -1,112 +1,168 @@
-#include "linked_list.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include "Struct.h"
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-void imprimirLista(List *l) {
-    int i;
-    for (i = 0; i < listSize(l); i++)
-        printf("%d ", listGet(l, i));
-        printf("%d ", listGet(l, i));
-    printf("\n");
+void listar(){
+	Node *i=primero;
+	while(i!=NULL){
+		switch(i->codComida){
+			case 1:{
+				printf("%d -- Orden de pollo. cant= %d",i->item,i->cantidad);		
+				break;
+			}
+			case 2:{
+				printf("%d -- Orden de carne. cant= %d",i->item,i->cantidad);		
+				break;
+			}
+			case 3:{
+				printf("%d -- Orden de sopa. cant= %d",i->item,i->cantidad);		
+				break;
+			}
+		}
+		printf("\n");
+		i=i->next;
+	}
+}
+void agregar(Node *l) {
+	Node *temp;
+	l->next=NULL;
+	if(primero==NULL){
+		primero=l;
+		ultimo=l;
+	}else{
+		ultimo->next=l;
+		temp=ultimo;
+		ultimo=l;
+		ultimo->ant=temp;
+	}
 }
 
-int validarPosicion(List *l, int opcion, int posicion) {
-    /* Agregar en posicion especificada */
-    if ((opcion == 3) && (posicion < 0 || posicion > listSize(l))) {
-        printf("Posicion %d no valida\n", posicion);
-        return 0;
-    /* Obtener o remover elemento de posicion especificada */
-    } else if ((opcion == 5 || opcion == 7) && (posicion < 0 || posicion >= listSize(l))) {
-        printf("Posicion %d no valida\n", posicion);
-        return 0;
-    } else {
-        return 1;
-    }
+void prioridad(int position,Node *pedido){
+	Node *i=primero;
+	Node *des;
+	Node *ant;
+	int item;
+	while(i!=NULL){
+		if(i->item==position){
+			if(i->next!=NULL){
+				des=i->next;
+				ant=i->ant;
+				ant->next=pedido;
+				i->ant=pedido;
+				pedido->next=i;
+				pedido->ant=ant;
+				//item=pedido->item;
+				//i->next=pedido;
+				//pedido->next=des;
+				//pedido->item=des->item;
+				//temp->item=item;
+			}else{
+				agregar(pedido);
+			}
+		}
+		i=i->next;
+	}
 }
-
-
-int main(int argc, char **argv) {
-    List lst;
-    int eleccion, valor, posicion;
-    listInitialize(&lst);
-    while (1) {
+void main() {
+	int op=10,cont=1,comida,cantidad,position;
+	while (op!=0) {
+		system("cls");
         printf("Menu de operaciones de listas\n");
-        printf("\t1- Tamano de la lista\n");
-        printf("\t2- Agregar al final\n");
-        printf("\t3- Agregar en posicion especifica\n");
-        printf("\t4- Comprobar si la lista esta vacia\n");
-        printf("\t5- Obtener elemento en una posicion\n");
-        printf("\t6- Verificar si la lista contiene un elemento\n");
-        printf("\t7- Remover elemento en posicion\n");
-        printf("\t8- Remover elemento con valor\n");
-        printf("\t9- Limpiar la lista\n");
+        printf("\t1- Ingresar Pedido\n");
+        printf("\t2- Ingresar Pedido Prioritario\n");
+        printf("\t3- Historial de pedido\n");
+        printf("\t4- Cancelar Pedido\n");
         printf("\t0- Salir\n");
-
-        /* Obtiene entrada del usuario */
-        printf("Su eleccion: ");
-        scanf("%d", &eleccion);
-
-        if (eleccion == 0) break;
-
-        switch(eleccion) {
-            case 1:
-                printf("Tamano = %d\n", listSize(&lst));
-                break;
-            case 2:
-            case 3:
-                printf("Lista anterior: ");
-                imprimirLista(&lst);
-                printf("Valor: ");
-                scanf("%d", &valor);
-                if (eleccion == 2) listAppend(&lst, valor);
-                else {
-                    printf("Posicion: ");
-                    scanf("%d", &posicion);
-                    if(validarPosicion(&lst, 3, posicion)) listAdd(&lst, posicion, valor);
-                }
-                printf("Lista nueva: ");
-                imprimirLista(&lst);
-                break;
-            case 4:
-                printf("Lista%svacia\n", listIsEmpty(&lst) ? " " : " no ");
-                break;
-            case 5:
-                printf("Posicion: ");
-                scanf("%d", &posicion);
-                if (validarPosicion(&lst, 5, posicion))
-                    printf("Valor: %d\n", listGet(&lst, posicion));
-                break;
-            case 6:
-                printf("Valor: ");
-                scanf("%d", &valor);
-                printf("El elemento %d%sesta en la lista\n", valor, listContains(&lst, valor) ? " " : " no ");
-                break;
-            case 7:
-                printf("Lista anterior: ");
-                imprimirLista(&lst);
-                printf("Posicion: ");
-                scanf("%d", &posicion);
-                if (validarPosicion(&lst, 7, posicion)) listRemove(&lst, posicion);
-                printf("Lista nueva   : ");
-                imprimirLista(&lst);
-                break;
-            case 8:
-                printf("Lista anterior: ");
-                imprimirLista(&lst);
-                printf("Valor: ");
-                scanf("%d", &valor);
-                listRemoveItem(&lst, valor);
-                printf("Lista nueva: ");
-                imprimirLista(&lst);
-                break;
-            case 9:
-                printf("Lista anterior: ");
-                imprimirLista(&lst);
-                listClear(&lst);
-                printf("Lista nueva: ");
-                imprimirLista(&lst);
-                break;
-        }
-        printf("\n");
- }
-    return 0;
+        scanf("%d",&op);
+        Node *pedido=malloc(sizeof(Node));
+        switch(op){
+        	case 1:{
+        		system("cls");
+        		printf("1) pollo 2)carne 3)sopa \n\n");
+        		scanf("%d",&comida);
+        		printf("Cantidad: \n\n");
+        		scanf("%d",&cantidad);
+        		switch(comida){
+        			case 1:{
+        				if(cantidad!=0){
+        					pedido->codComida=1;
+							pedido->item=cont;
+							pedido->cantidad=cantidad;
+							cont++;
+							agregar(pedido);
+						}
+						break;
+					}
+					case 2:{
+						pedido->codComida=2;
+						pedido->item=cont;
+						pedido->cantidad=cantidad;
+						cont++;
+						agregar(pedido);
+						break;
+					}
+					case 3:{
+						pedido->codComida=3;
+						pedido->item=cont;
+						pedido->cantidad=cantidad;
+						cont++;
+						agregar(pedido);
+						break;
+					}
+				}
+				
+				break;
+			}
+			case 2:{
+				system("cls");
+				listar();
+        		printf("\nPosicion:\n");
+        		scanf("%d",&position);
+        		
+        		printf("1) pollo 2)carne 3)sopa \n\n");
+        		scanf("%d",&comida);
+        		printf("Cantidad: \n\n");
+        		scanf("%d",&cantidad);
+        		
+        		switch(comida){
+        			case 1:{
+        				if(cantidad!=0){
+        					pedido->codComida=1;
+							pedido->item=cont;
+							pedido->cantidad=cantidad;
+							cont++;
+						}
+						break;
+					}
+					case 2:{
+						pedido->codComida=2;
+						pedido->item=cont;
+						pedido->cantidad=cantidad;
+						cont++;
+						break;
+					}
+					case 3:{
+						printf("3");
+						pedido->codComida=3;
+						pedido->item=cont;
+						pedido->cantidad=cantidad;
+						cont++;
+						break;
+					}
+				}
+        		
+				prioridad(position,pedido);
+				break;
+			}
+			case 3:{
+				listar();
+				system("pause");
+				break;
+			}
+		}
+		
+		
 }
+}
+
