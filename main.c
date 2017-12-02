@@ -1,169 +1,98 @@
+#include "linked_list.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include "Struct.h"
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-//Hola
 
-void listar(){
-	Node *i=primero;
-	while(i!=NULL){
-		switch(i->codComida){
-			case 1:{
-				printf("%d -- Orden de pollo. cant= %d",i->item,i->cantidad);		
-				break;
-			}
-			case 2:{
-				printf("%d -- Orden de carne. cant= %d",i->item,i->cantidad);		
-				break;
-			}
-			case 3:{
-				printf("%d -- Orden de sopa. cant= %d",i->item,i->cantidad);		
-				break;
-			}
-		}
-		printf("\n");
-		i=i->next;
-	}
-}
-void agregar(Node *l) {
-	Node *temp;
-	l->next=NULL;
-	if(primero==NULL){
-		primero=l;
-		ultimo=l;
-	}else{
-		ultimo->next=l;
-		temp=ultimo;
-		ultimo=l;
-		ultimo->ant=temp;
-	}
-}
+main() 
+{ 
+   //Declaracion de Variables
+   Lista *menu= NULL;
+   char opcion;
+     
+   //Repetir Programa.
+   while(opcion!='s')   
+   {  
+     //Menu de opciones 
 
-void prioridad(int position,Node *pedido){
-	Node *i=primero;
-	Node *des;
-	Node *ant;
-	int item;
-	while(i!=NULL){
-		if(i->item==position){
-			if(i->next!=NULL){
-				des=i->next;
-				ant=i->ant;
-				ant->next=pedido;
-				i->ant=pedido;
-				pedido->next=i;
-				pedido->ant=ant;
-				//item=pedido->item;
-				//i->next=pedido;
-				//pedido->next=des;
-				//pedido->item=des->item;
-				//temp->item=item;
-			}else{
-				agregar(pedido);
-			}
-		}
-		i=i->next;
-	}
-}
-void main() {
-	int op=10,cont=1,comida,cantidad,position;
-	while (op!=0) {
-		system("cls");
-        printf("Menu de operaciones de listas\n");
-        printf("\t1- Ingresar Pedido\n");
-        printf("\t2- Ingresar Pedido Prioritario\n");
-        printf("\t3- Historial de pedido\n");
-        printf("\t4- Cancelar Pedido\n");
-        printf("\t0- Salir\n");
-        scanf("%d",&op);
-        Node *pedido=malloc(sizeof(Node));
-        switch(op){
-        	case 1:{
-        		system("cls");
-        		printf("1) pollo 2)carne 3)sopa \n\n");
-        		scanf("%d",&comida);
-        		printf("Cantidad: \n\n");
-        		scanf("%d",&cantidad);
-        		switch(comida){
-        			case 1:{
-        				if(cantidad!=0){
-        					pedido->codComida=1;
-							pedido->item=cont;
-							pedido->cantidad=cantidad;
-							cont++;
-							agregar(pedido);
-						}
-						break;
-					}
-					case 2:{
-						pedido->codComida=2;
-						pedido->item=cont;
-						pedido->cantidad=cantidad;
-						cont++;
-						agregar(pedido);
-						break;
-					}
-					case 3:{
-						pedido->codComida=3;
-						pedido->item=cont;
-						pedido->cantidad=cantidad;
-						cont++;
-						agregar(pedido);
-						break;
-					}
-				}
-				
-				break;
-			}
-			case 2:{
-				system("cls");
-				listar();
-        		printf("\nPosicion:\n");
-        		scanf("%d",&position);
-        		
-        		printf("1) pollo 2)carne 3)sopa \n\n");
-        		scanf("%d",&comida);
-        		printf("Cantidad: \n\n");
-        		scanf("%d",&cantidad);
-        		
-        		switch(comida){
-        			case 1:{
-        				if(cantidad!=0){
-        					pedido->codComida=1;
-							pedido->item=cont;
-							pedido->cantidad=cantidad;
-							cont++;
-						}
-						break;
-					}
-					case 2:{
-						pedido->codComida=2;
-						pedido->item=cont;
-						pedido->cantidad=cantidad;
-						cont++;
-						break;
-					}
-					case 3:{
-						printf("3");
-						pedido->codComida=3;
-						pedido->item=cont;
-						pedido->cantidad=cantidad;
-						cont++;
-						break;
-					}
-				}
-        		
-				prioridad(position,pedido);
-				break;
-			}
-			case 3:{
-				listar();
-				system("pause");
-				break;
-			}
-		}
-		
-		
-}
-}
+      printf(" | ");printf("\t\t\t     Menu Restaurante");printf("\t\t\t      |\n");
+      printf("\t       %c----------%c\t\t\t\t       ",201,187);
+      printf("\t\t\t               |   MENU   ");printf("|\t\t\t\t      \n");
+      printf("   | <A>  Nuevo Menu               |\n");
+      
+      printf("   | <B>  Listar Menu                       |\n");      
+      
+      printf("   | <C>  Eliminar Menu            |\n");      
+      
+      printf("   | <D>  Modificar Menu            |\n"); 
+      
+      printf("   | <S>  Salir                         |\n");
+      
+      printf("\n\n\n\n");
+      printf("\t\t\t      Realizado por: Sin fronteras");
+      //Leyendo Opcion del Menu   
+      fflush(stdin);
+      opcion= getch(); 
+      
+      //Menu de opciones
+      switch(opcion)
+      {
+         case 'A':   
+         case 'a':   
+              //Insertar Menu.
+              fflush(stdin);
+              system("cls");
+              printf(" %c----------------------------------------------------------------------------%c\n",201,187);
+              printf(" | ");printf("\t\t\t          NUEVO MENU     ");printf("\t\t\t      |\n");
+              printf(" %c----------------------------------------------------------------------------%c\n",200,188);
+              menu= inserir_restaurantes(menu);
+         getch();
+         system("cls"); 
+         break;
+         
+         case 'B':   
+         case 'b':       
+              //Listar menu.
+              system ("cls");
+              printf(" %c----------------------------------------------------------------------------%c\n",201,187);
+              printf(" | ");printf("\t\t\t     LISTAR MENU");printf("\t\t\t      |\n");
+              printf(" %c----------------------------------------------------------------------------%c\n",200,188);
+              listar_restaurantes(menu);
+         getch();
+         system("cls");
+         break;
+         
+         case 'C':   
+         case 'c':   
+              //Excluindo restaurantes da lista.
+              system ("cls");
+              printf(" %c----------------------------------------------------------------------------%c\n",201,187);
+              printf(" | ");printf("\t\t\t        ELIMINAR MENU");printf("\t\t\t      |\n");
+              printf(" %c----------------------------------------------------------------------------%c\n",200,188);
+              menu= excluir_restaurantes(menu);
+         getch();
+         system("cls");
+         break;
 
+         case 'D':   
+         case 'd':   
+              //Modificar Menu. 
+              system ("cls");
+              printf(" %c----------------------------------------------------------------------------%c\n",201,187);
+              printf(" | ");printf("\t\t\t       MODIFICAR MENU");printf("\t\t\t      |\n");
+              printf(" %c----------------------------------------------------------------------------%c\n",200,188);
+              alterar_restaurantes(menu);
+         getch();
+         system("cls");
+         break;
+         
+         case 'S':   
+         case 's':       
+              //Salir Programa.
+              opcion='s';
+         break;
+         
+         default:     
+              //Digitar Opcion Diferente del menu.
+              system("cls");        
+         break; 
+      } 
+   }  
+}
