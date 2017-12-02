@@ -10,7 +10,7 @@ typedef struct lista{
      struct lista* prox;   
    }Lista;
    
-   //Declaração de funções.
+   //Declarando las funciones.
    Lista* insertar_pedido(Lista* menu);
    void listar_pedidos(Lista* menu);
    Lista* excluir_pedidos(Lista* menu);
