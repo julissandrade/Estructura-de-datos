@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o linked_list.o
-LINKOBJ  = main.o linked_list.o
+OBJ      = ../../../Todo/Proyecto/main.o ../../../Todo/Proyecto/linked_list.o
+LINKOBJ  = ../../../Todo/Proyecto/main.o ../../../Todo/Proyecto/linked_list.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -24,8 +24,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-main.o: main.c
-	$(CC) -c main.c -o main.o $(CFLAGS)
+../../../Todo/Proyecto/main.o: ../../../Todo/Proyecto/main.c
+	$(CC) -c ../../../Todo/Proyecto/main.c -o ../../../Todo/Proyecto/main.o $(CFLAGS)
 
-linked_list.o: linked_list.c
-	$(CC) -c linked_list.c -o linked_list.o $(CFLAGS)
+../../../Todo/Proyecto/linked_list.o: ../../../Todo/Proyecto/linked_list.c
+	$(CC) -c ../../../Todo/Proyecto/linked_list.c -o ../../../Todo/Proyecto/linked_list.o $(CFLAGS)
