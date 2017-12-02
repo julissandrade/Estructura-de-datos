@@ -9,7 +9,7 @@ Lista* insertar_pedido (Lista *primero){
      //Info del pedido
      printf("  Nombre: ");
      fflush (stdin); fgets(pedido.Nombre, 40, stdin); printf ("\n");
-     printf("  Precio: ",135);
+     printf("  Precio: $  ",135);
      fflush (stdin); fgets(pedido.Precio, 40, stdin); printf ("\n");
      printf("  C%cdigo: ",162);
      scanf("%u",&pedido.codigo);printf ("\n");
@@ -46,7 +46,7 @@ void listar_pedidos (Lista* primero){
      for(actual= primero ; actual!= NULL; actual= actual->prox){
         printf("\n  Nombre: ");
         printf("%s", actual->Nombre);
-        printf("\n  Precio: ",135);
+        printf("\n  Precio: $  ",135);
         printf("%s", actual->Precio);
         printf("\n  C%cdigo: ",162 );
         printf("%u", actual->codigo);
@@ -76,7 +76,7 @@ Lista* eliminar_pedido(Lista *primero){
      
      //Mensaje si el pedido no se encuentra.
      if(actual==NULL){
-        printf("\n  pedido n%co encontrado.", 198); 
+        printf("\n  pedido no encontrado.", 198); 
         printf("\n\n  Presione cualquier tecla para volver al pedido principal..");
         return primero;
      }
@@ -118,12 +118,12 @@ void alterar_pedidos(Lista* primero){
         printf("\n  Nuevo Nombre: ");
         fflush (stdin); fgets(Nombre_substituto, 40, stdin); 
         strcpy(actual->Nombre,Nombre_substituto);
-        printf("\n  Nuevo Precio: ",135);
+        printf("\n  Nuevo Precio: $  ",135);
         fflush (stdin); fgets(Precio_substituto, 40, stdin); printf ("\n");
         strcpy(actual->Precio,Precio_substituto);
         printf("  Pedido modificado con exito.");
      }else{
-        printf("\n  pedido n%co encontrado.",198);
+        printf("\n  pedido no encontrado.",198);
      }
      printf("\n\n\n  Presione cualquier tecla para volver al pedido principal..");
      }

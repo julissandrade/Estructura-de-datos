@@ -12,7 +12,7 @@ main()
    {  
      //pedido de opciones 
 
-	  printf("\t\t\t     pedido pedido");printf("\t\t\t      \n");
+	  printf("\t\t\t     SISTEMA DE PEDIDOS");printf("\t\t\t      \n\n");
 
       printf("\t\t\t    (A)  Nuevo pedido               \n");
       
@@ -39,7 +39,7 @@ main()
               fflush(stdin);
               system("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
-              printf(" | ");printf("\t\t\t          NUEVO pedido     ");printf("\t\t\t      |\n");
+              printf(" | ");printf("\t\t\t          NUEVO PEDIDO     ");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
               pedido= insertar_pedido(pedido);
          getch();
@@ -51,7 +51,7 @@ main()
               //Listar pedido.
               system ("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
-              printf(" | ");printf("\t\t\t     LISTAR pedido");printf("\t\t\t      |\n");
+              printf(" | ");printf("\t\t\t          LISTAR PEDIDO     ");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
               listar_pedidos(pedido);
          getch();
@@ -63,7 +63,7 @@ main()
               //Excluindo pedidos da lista.
               system ("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
-              printf(" | ");printf("\t\t\t        ELIMINAR pedido");printf("\t\t\t      |\n");
+              printf(" | ");printf("\t\t\t        ELIMINAR PEDIDO");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
               pedido= eliminar_pedido(pedido);
          getch();
@@ -75,7 +75,7 @@ main()
               //Modificar pedido. 
               system ("cls");
               printf(" %c----------------------------------------------------------------------------%c\n",201,187);
-              printf(" | ");printf("\t\t\t       MODIFICAR pedido");printf("\t\t\t      |\n");
+              printf(" | ");printf("\t\t\t        MODIFICAR PEDIDO");printf("\t\t\t      |\n");
               printf(" %c----------------------------------------------------------------------------%c\n",200,188);
               alterar_pedidos(pedido);
          getch();
