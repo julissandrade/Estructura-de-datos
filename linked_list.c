@@ -23,17 +23,17 @@ Lista* insertar_pedido (Lista *primero){
      }
 
      if(identificador!='V' && (strlen(pedido.Nombre)!=1 && strlen(pedido.Precio)!=1)){
-         //Alocando os espaços e guardando as informações do pedido.
+         //Guardando info del pedido.
          Lista* NuevoPedido=(Lista*) malloc (sizeof(Lista));       
          strcpy(NuevoPedido->Nombre, pedido.Nombre);
          strcpy(NuevoPedido->Precio, pedido.Precio);
          NuevoPedido->codigo= pedido.codigo;
          NuevoPedido->prox= primero;
-         printf("  Cadastro realizado com sucesso.");
+         printf("  Pedido realizado con exito.");
          printf("\n\n  Precione cualquier tecla para volver al menu principal..");
          return NuevoPedido;    
      }else{
-         printf("  Cadastro inv%clido.",160);
+         printf("  Pedido incorrecto.",160);
          printf("\n\n  Precione cualquier tecla para volver al menu principal..");
          return primero;
      }
